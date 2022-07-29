@@ -1,0 +1,36 @@
+<div *ngIf="loaded">
+    <button mat-button [matMenuTriggerFor]="nestedMenu">Nested menu</button>
+    <mat-menu #nestedMenu="matMenu">
+        <ng-template #main>
+            <div *ngFor="let item of sanitizedData">
+                <div *ngIf="item.sons.length>0">
+                    <button mat-menu-item [matMenuTriggerFor]="subMenu">{{item.name}}</button>
+                </div>
+                <div *ngIf="item.sons.length==0">
+                    <button mat-menu-item>{{item.name}}</button>
+                </div>
+                
+                <mat-menu #subMenu="matMenu">
+                    <ng-container *ngTemplateOutlet="main; 
+                          context: { $implicit: item.sons }"></ng-container>
+                    <!-- <ng-container *ngFor="let subItem of item.sons">
+                                    <div *ngIf="subItem.sons.length>0">
+                                        <button mat-menu-item [matMenuTriggerFor]="subMenu">{{subItem.name}}</button>
+                                    </div>
+                                    <div *ngIf="subItem.sons.length==0">
+                                        <button mat-menu-item>{{subItem.name}}</button>
+                                    </div>
+                
+                                    <mat-menu #subChildMenu="matMenu">
+                                        <ng-container *ngFor="let sub2Item of subItem.sons"></ng-container>
+                                    </mat-menu>
+                                </ng-container> -->
+                </mat-menu>
+            </div>
+            
+        </ng-template>
+    </mat-menu>
+
+</div>
+
+
