@@ -1,2 +1,8 @@
-<app-menu>
-</app-menu>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-button [matMenuTriggerFor]="nestedMenu">Nested menu</button>
+        <mat-menu #nestedMenu="matMenu">
+            <app-menu [sanitizedData]="sanitizedData"></app-menu>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

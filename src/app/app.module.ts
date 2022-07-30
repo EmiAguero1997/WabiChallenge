@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{MatMenuModule} from '@angular/material/menu';
+import{MatButtonModule} from '@angular/material/button';
+import{MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import{MatMenuModule} from '@angular/material/menu';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
